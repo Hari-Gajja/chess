@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Chess Game </title>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <div class="container">
+        <div class="header-container">
+            <h1><b>Hari</b> Chess Game</h1>
+        </div>
+        <a href="tutorial.html" class="tutorial-link">How to Play →</a>
+        <div class="game-layout">
+            <div class="player-section">
+                <div class="timer player-timer">
+                    <span class="label">You:</span>
+                    <span class="time">10:00</span>
+                </div>
+                <div id="human-moves" class="move-history">
+                    <h3>Your Moves</h3>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <div class="buttons">
+                    <button class="start-game">Start Game</button>
+                    <button class="play-again" disabled>Play Again</button>
+                    <button class="set-pos" disabled>Set Position</button>
+                    <button class="flip-board" disabled>Flip Board</button>
+                </div>
+                <div class="board" id="board"></div>
+                <div class="board-colors">
+                    <div class="color-picker">
+                        <label>Light Squares:</label>
+                        <input type="color" id="lightSquares" value="#ffffff">
+                    </div>
+                    <div class="color-picker">
+                        <label>Dark Squares:</label>
+                        <input type="color" id="darkSquares" value="#4b7399">
+                    </div>
+                    <button class="apply-colors" disabled>Apply Colors</button>
+                </div>
+            </div>
+
+            <div class="cpu-section">
+                <div class="timer cpu-timer">
+                    <span class="label">CPU:</span>
+                    <span class="time">10:00</span>
+                </div>
+                <div id="cpu-moves" class="move-history">
+                    <h3>CPU Moves</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="https://unpkg.com/stockfish.js@latest/stockfish.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

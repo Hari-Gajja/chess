@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../tutorial.css">
+    <link rel="stylesheet" href="../shop/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Getting Started - Chess Tutorial</title>
+</head>
+<body>
+    <div id="auth-header"></div>
+
+    <div class="detail-container">
+        <nav>
+            <a href="../tutorial.html" class="back-button">← Back to Tutorial</a>
+        </nav>
+        
+        <article class="tutorial-detail">
+            <h1>Getting Started with Chess</h1>
+            
+            <div class="detail-section">
+                <div class="video-container">
+                    <video class="tutorial-video" controls muted loop playsinline>
+                        <source src="../videos/special-moves.webm" type="video/webm">
+                        <source src="../images/tutorial/start.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-controls">
+                        <button class="replay-btn">↺ Replay</button>
+                        <button class="speed-btn">1x Speed</button>
+                    </div>
+                </div>
+                <h2>Starting a New Game</h2>
+                <p>To begin playing chess:</p>
+                <ol>
+                    <li>Locate the "Start Game" button at the top of the board</li>
+                    <li>Click to initialize a new game</li>
+                    <li>The board will automatically set up with pieces in their starting positions</li>
+                    <li>The timer will begin at 10:00 minutes for each player</li>
+                </ol>
+            </div>
+
+            <div class="detail-section">
+                <h2>Initial Board Setup</h2>
+                <img src="../images/tutorial/board-setup.png" alt="Initial Board Setup">
+                <p>Understanding the initial position:</p>
+                <ul>
+                    <li>White pieces are positioned at the bottom</li>
+                    <li>Each player starts with 16 pieces</li>
+                    <li>The first row contains the major pieces</li>
+                    <li>The second row contains eight pawns</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+
+    <div class="modal" id="login-modal">
+        <!-- copy login modal content from shop/index.html with adjusted paths -->
+    </div>
+
+    <div class="modal" id="signup-modal">
+        <!-- copy signup modal content from shop/index.html with adjusted paths -->
+    </div>
+
+    <script type="module">
+        import { loadHeader } from '../js/headerLoader.js';
+        import authService from '../js/authService.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadHeader('auth-header');
+            authService.init();
+        });
+    </script>
+    <script src="../js/modal.js" type="module"></script>
+</body>
+</html>

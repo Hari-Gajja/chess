@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../tutorial.css">
+    <link rel="stylesheet" href="../shop/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Game Controls - Chess Tutorial</title>
+</head>
+<body>
+    <div id="auth-header"></div>
+    <div class="detail-container">
+        <nav>
+            <a href="../tutorial.html" class="back-button">← Back to Tutorial</a>
+        </nav>
+        
+        <article class="tutorial-detail">
+            <h1>Game Controls</h1>
+            
+            <div class="detail-section">
+                <div class="detail-section">
+                    <div class="video-container">
+                        <video class="tutorial-video" controls muted loop playsinline>
+                            <source src="../videos/special-moves.webm" type="video/webm">
+                            <source src="../images/tutorial/game-controls.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-controls">
+                            <button class="replay-btn">↺ Replay</button>
+                            <button class="speed-btn">1x Speed</button>
+                        </div>
+                    </div>
+                <h2>Control Buttons</h2>
+                <ul>
+                    <li><strong>Start Game:</strong> Begins a new chess match</li>
+                    <li><strong>Play Again:</strong> Resets the board for a new game</li>
+                    <li><strong>Set Position:</strong> Customize piece placement</li>
+                    <li><strong>Flip Board:</strong> Rotates the board 180 degrees</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Timer Controls</h2>
+                <img src="../images/tutorial/timer.png" alt="Chess Timer">
+                <p>The game features a 10-minute timer for each player:</p>
+                <ul>
+                    <li>Timer starts when the first move is made</li>
+                    <li>Switches automatically between players</li>
+                    <li>Game ends if time runs out</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+    <script type="module">
+        import { loadHeader } from '../js/headerLoader.js';
+        import authService from '../js/authService.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadHeader('auth-header');
+            authService.init();
+        });
+    </script>
+    <script src="../js/tutorial-video.js"></script>
+</body>
+</html>

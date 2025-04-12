@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChessKart - Premium Chess Equipment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="chess-loader">
+            <div class="chess-piece">
+                <i class="fas fa-chess-king"></i>
+            </div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Chess<span>Kart</span></a>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#brands">Brands</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="auth-buttons">
+                    <a href="#" class="auth-btn login-btn" id="openLoginModal">Login</a>
+                    <a href="#" class="auth-btn signup-btn" id="openSignupModal">Sign Up</a>
+                </div>
+                <div class="icons">
+                    <div class="user-icon" id="userIcon">
+                        <i class="fas fa-user"></i>
+                        <div class="dropdown-content">
+                            <span class="user-info">
+                                <span class="user-name"></span>
+                                <span class="user-email"></span>
+                            </span>
+                            <a href="profile.html">Profile</a>
+                            <a href="#" class="logout-link">Logout</a>
+                        </div>
+                    </div>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart">
+                            <span class="cart-count">0</span>
+                        </i>
+                    </a>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Master the Game of Kings</h1>
+                <p class="hero-subtitle">Discover our exclusive collection of chess sets and accessories</p>
+                <a href="#shop" class="btn">Shop Now</a>
+                <!-- Add hero image here -->
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/131616/pexels-photo-131616.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chess King" class="chess-piece-hero">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="scroller"></div>
+            </div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- Featured Brands -->
+    <section class="brands-section" id="brands">
+        <div class="container">
+            <h2 class="section-title">Our Featured Brands</h2>
+            <div class="brands-grid">
+                <div class="brand-card" data-brand="staunton">
+                    <img src="https://pbs.twimg.com/profile_images/1538852928248635393/LjJjGX72_400x400.jpg" alt="Staunton">
+                </div>
+                <div class="brand-card" data-brand="chessmaster">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/29/Chessmaster_logo.png" alt="ChessMaster">
+                </div>
+                <div class="brand-card" data-brand="royalchess">
+                    <img src="https://pbs.twimg.com/profile_images/1538852928248635393/LjJjGX72_400x400.jpg" alt="Royal Chess">
+                </div>
+                <div class="brand-card" data-brand="chessway">
+                    <img src="https://static.vecteezy.com/system/resources/previews/008/480/739/non_2x/simple-chess-king-logo-icon-illustration-free-vector.jpg" alt="ChessWay">
+                </div>
+                <div class="brand-card" data-brand="chessbazaar">
+                    <img src="https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/PedroPinhata/phpENTibR.png" alt="Chess Bazaar">
+                </div>
+                <div class="brand-card" data-brand="dgt">
+                    <img src="https://www.digitalgametechnology.com/images/DGT_Logo.png" alt="DGT">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+        <section class="shop-section" id="shop">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <div class="price-range-filter">
+                <span>Price Range:</span>
+                <input type="number" id="min-price" placeholder="Min Price (₹)" min="1500" max="50000">
+                <span>to</span>
+                <input type="number" id="max-price" placeholder="Max Price (₹)" min="1500" max="50000">
+                <button id="apply-filter">Apply</button>
+                <button id="reset-filter">Reset</button>
+            </div>
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All</button>
+                <button class="tab-btn" data-category="sets">Chess Sets</button>
+                <button class="tab-btn" data-category="boards">Boards</button>
+                <button class="tab-btn" data-category="pieces">Pieces</button>
+                <button class="tab-btn" data-category="clocks">Chess Clocks</button>
+                <button class="tab-btn" data-category="accessories">Accessories</button>
+            </div>
+            <div class="brand-tabs">
+                <button class="tab-btn active" data-brand="all">All Brands</button>
+                <button class="tab-btn" data-brand="staunton">Staunton</button>
+                <button class="tab-btn" data-brand="chessmaster">ChessMaster</button>
+                <button class="tab-btn" data-brand="royalchess">Royal Chess</button>
+                <button class="tab-btn" data-brand="chessway">ChessWay</button>
+                <button class="tab-btn" data-brand="chessbazaar">Chess Bazaar</button>
+                <button class="tab-btn" data-brand="dgt">DGT</button>
+            </div>
+            <section class="featured-products" id="featured">
+                <div class="container">
+                    <h2 class="section-title">Featured Products</h2>
+                    <div class="products-grid">
+                        <!-- Product cards will be loaded dynamically via JavaScript -->
+                    </div>
+                </div>
+            </section>
+            <div class="load-more">
+                <button class="btn" id="load-more-btn">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Our Story</h2>
+                <p class="about-text">Founded in 2010, WatchHub has grown from a small boutique to one of the leading online retailers of watches in India. Our mission is to bring quality timepieces to customers who appreciate craftsmanship and value for money.</p>
+                <p class="about-text">With over 20 brands and thousands of satisfied customers, we pride ourselves on offering authentic watches, exceptional customer service, and competitive prices. Our team of watch experts is always available to help you find the perfect timepiece for any occasion.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>50,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>Trusted Brands</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Authentic Products</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Watch Store">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="testimonials-container">
+                <!-- Testimonials will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get exclusive offers, new arrivals, and watch care tips directly to your inbox.</p>
+            </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-info">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Time Avenue, Watch City, WC 10001</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@watchhub.com</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <a href="#" class="logo">Watch<span>Hub</span></a>
+                <p>Quality watches for every Indian</p>
+            </div>
+            <div class="footer-links">
+                <div class="links-column">
+                    <h4>Shop</h4>
+                    <a href="#">New Arrivals</a>
+                    <a href="#">Best Sellers</a>
+                    <a href="#">Budget Watches</a>
+                    <a href="#">Premium Watches</a>
+                    <a href="#">Smart Watches</a>
+                </div>
+                <div class="links-column">
+                    <h4>Information</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Blog</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div class="links-column">
+                    <h4>Customer Service</h4>
+                    <a href="#">Contact Us</a>
+                    <a href="#">My Account</a>
+                    <a href="#">Order Tracking</a>
+                    <a href="#">Wishlist</a>
+                    <a href="#">Size Guide</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 WatchHub. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Watch Details Modal -->
+    <div class="watch-modal" id="watchModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <div class="main-image">
+                        <img id="modalMainImage" src="" alt="Watch">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnailImages"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalWatchName"></h2>
+                    <p class="watch-brand" id="modalWatchBrand"></p>
+                    <div class="price-section">
+                        <span class="current-price" id="modalCurrentPrice"></span>
+                        <span class="original-price" id="modalOriginalPrice"></span>
+                    </div>
+                    <div class="watch-specs" id="modalWatchSpecs"></div>
+                    <div class="watch-features" id="modalWatchFeatures"></div>
+                    <div class="modal-actions">
+                        <button class="btn add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i> Wishlist</button>
+                    </div>
+                    <div class="buy-links" id="modalBuyLinks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="auth-modal" id="loginModal">
+        <div class="auth-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="signup">Sign Up</div>
+            </div>
+            <div class="auth-form active" id="loginForm">
+                <h2>Welcome Back</h2>
+                <form id="loginFormElement">
+                    <div class="form-group mb-3">
+                        <label for="loginEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                            <button type="button" class="input-group-text toggle-password" data-target="loginPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <a href="#" class="forgot-password small d-block mt-2">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+                </form>
+                <div class="divider my-4">or</div>
+                <div class="social-login">
+                    <button class="social-btn" title="Login with Google">
+                        <i class="fab fa-google" style="color: #DB4437;"></i>
+                    </button>
+                    <button class="social-btn" title="Login with Facebook">
+                        <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
+                    </button>
+                </div>
+                <div class="toggle-form mt-4 text-center">
+                    Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
+                </div>
+            </div>
+            <div class="auth-form" id="signupForm">
+                <h2>Create Account</h2>
+                <form id="signupFormElement">
+                    <div class="form-group mb-3">
+                        <label for="signupName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="signupName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="signupEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+                        <div class="error-message" id="emailError">Email already registered</div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="signupPassword" placeholder="Create a password (min 6 characters)" minlength="6" required>
+                            <button type="button" class="input-group-text toggle-password" data-target="signupPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            <button type="button" class="input-group-text toggle-password" data-target="confirmPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="error-message" id="passwordError">Passwords don't match</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Sign Up</button>
+                </form>
+                <div class="divider my-4">or</div>
+                <div class="social-login">
+                    <button class="social-btn" title="Sign up with Google">
+                        <i class="fab fa-google" style="color: #DB4437;"></i>
+                    </button>
+                    <button class="social-btn" title="Sign up with Facebook">
+                        <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
+                    </button>
+                </div>
+                <div class="toggle-form mt-4 text-center">
+                    Already have an account? <a href="#" id="switchToLogin">Log in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="auth.js"></script>
+<script src="cart.js"></script>
+<script src="login.js"></script>
+<script src="signup.js"></script>
+<script src="auth.js"></script>
+</html>

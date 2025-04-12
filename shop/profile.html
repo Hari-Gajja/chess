@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ChessKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Copy your navbar from index.html -->
+    <main class="profile-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <i class="fas fa-user-circle fa-5x"></i>
+                <h1 id="userName">Loading...</h1>
+                <p id="userEmail">Loading...</p>
+                <p id="joinDate">Member since: Loading...</p>
+            </div>
+            <div class="profile-form">
+                <form id="updateProfileForm">
+                    <div class="form-group">
+                        <label for="updateName">Full Name</label>
+                        <input type="text" id="updateName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateEmail">Email</label>
+                        <input type="email" id="updateEmail" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePassword">New Password (optional)</label>
+                        <input type="password" id="updatePassword" class="form-control" minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+            <div class="profile-content">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+                <button class="logout-btn" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="auth.js"></script>
+    <script>
+        // Load and handle profile data
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'index.html';
+        } else {
+            // Display user info
+            document.getElementById('userName').textContent = currentUser.name;
+            document.getElementById('userEmail').textContent = currentUser.email;
+            document.getElementById('joinDate').textContent = 
+                'Member since: ' + new Date(currentUser.joined).toLocaleDateString();
+
+            // Fill form fields
+            document.getElementById('updateName').value = currentUser.name;
+            document.getElementById('updateEmail').value = currentUser.email;
+
+            // Handle profile updates
+            document.getElementById('updateProfileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const newName = document.getElementById('updateName').value;
+                const newPassword = document.getElementById('updatePassword').value;
+
+                // Get all users
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const userIndex = users.findIndex(u => u.email === currentUser.email);
+
+                if (userIndex !== -1) {
+                    // Update user info
+                    users[userIndex].name = newName;
+                    if (newPassword) {
+                        users[userIndex].password = newPassword;
+                    }
+
+                    // Update storage
+                    localStorage.setItem('users', JSON.stringify(users));
+                    localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+
+                    // Show success message
+                    alert('Profile updated successfully!');
+                    window.location.reload();
+                }
+            });
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

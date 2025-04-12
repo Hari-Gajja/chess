@@ -1,0 +1,231 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.tutorial-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.back-link {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+    color: #4b7399;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #2c4459;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tutorial-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #ddd;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tutorial-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    margin: 0;
+}
+
+.tutorial-card h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 1rem;
+    color: #333;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+}
+
+.tutorial-card p {
+    margin: 0 1rem 1rem;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.tutorial-card ul {
+    padding-left: 20px;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--primary-color);
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Detail page styles */
+.detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tutorial-detail {
+    padding: 20px;
+}
+
+.detail-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.detail-section img {
+    max-width: 100%;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tutorial-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: block;
+    background: #f5f5f5;
+    object-fit: contain;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 12px;
+    background: #f8f8f8;
+    border-top: 1px solid #eee;
+}
+
+.video-controls button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.video-controls button:hover {
+    background: var(--primary-dark);
+}
+
+.fen-code {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+.detail-section ul li strong {
+    color: #4b7399;
+}
+
+.shop-card {
+    background: linear-gradient(45deg, #f3f4f6, #fff);
+    border: 2px solid #4b7399;
+}
+
+.shop-card img {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: contain;
+    padding: 20px;
+    margin: 20px auto !important;
+}
+
+.shop-card:hover {
+    border-color: #2c4459;
+    background: linear-gradient(45deg, #fff, #f3f4f6);
+}
+
+@media (max-width: 768px) {
+    .tutorial-container {
+        padding: 1rem;
+    }
+
+    .tutorial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .back-link {
+        position: static;
+        display: block;
+        margin-bottom: 1rem;
+        transform: none;
+    }
+
+    header {
+        text-align: left;
+    }
+}

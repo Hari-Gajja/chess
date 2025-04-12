@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../tutorial.css">
+    <link rel="stylesheet" href="../shop/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>FEN Notation - Chess Tutorial</title>
+</head>
+<body>
+    <div id="auth-header"></div>
+    <div class="detail-container">
+        <nav>
+            <a href="../tutorial.html" class="back-button">← Back to Tutorial</a>
+        </nav>
+        
+        <article class="tutorial-detail">
+            <h1>Forsyth–Edwards Notation (FEN)</h1>
+            
+            <div class="detail-section">
+                <h2>Understanding FEN</h2>
+                <img src="../images/tutorial/notation.png" alt="FEN Notation Example">
+                <p>FEN is a standard notation for describing chess positions:</p>
+                <pre class="fen-code">rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1</pre>
+                <ul>
+                    <li><strong>Piece Placement:</strong> Each rank is described from 8th to 1st</li>
+                    <li><strong>Uppercase:</strong> White pieces (K,Q,R,B,N,P)</li>
+                    <li><strong>Lowercase:</strong> Black pieces (k,q,r,b,n,p)</li>
+                    <li><strong>Numbers:</strong> Count of empty squares</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>FEN Components</h2>
+                <ol>
+                    <li>Piece placement (from white's perspective)</li>
+                    <li>Active color (w/b)</li>
+                    <li>Castling availability (KQkq)</li>
+                    <li>En passant target square</li>
+                    <li>Halfmove clock</li>
+                    <li>Fullmove number</li>
+                </ol>
+            </div>
+        </article>
+    </div>
+    <script type="module">
+        import { loadHeader } from '../js/headerLoader.js';
+        import authService from '../js/authService.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadHeader('auth-header');
+            authService.init();
+        });
+    </script>
+</body>
+</html>
